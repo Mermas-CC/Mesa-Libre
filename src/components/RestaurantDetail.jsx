@@ -87,7 +87,7 @@ function RestaurantDetail({ restaurantId, onBack }) {
     setError(null);
     try {
       const response = await fetch(
-        `http://localhost:3001/api/restaurants/${restaurantId}/availability?date=${date}&time=${time}&guests=${guests}`
+        `${API_URL}/restaurants/${restaurantId}/availability?date=${date}&time=${time}&guests=${guests}`
       );
       if (!response.ok) {
         const errorData = await response.json();
