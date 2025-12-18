@@ -190,7 +190,7 @@ function RestaurantList({ onSelectRestaurant }) {
           </div>
         ) : (
           /* Map View */
-          <div className="h-full w-full" style={{ minHeight: '600px' }}>
+          <div style={{ height: '600px', width: '100%' }}>
             <MapContainer
               center={center}
               zoom={13}
@@ -201,8 +201,11 @@ function RestaurantList({ onSelectRestaurant }) {
               }}
             >
               <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                crossOrigin="anonymous"
+                maxZoom={19}
+                subdomains={['a', 'b', 'c']}
               />
               {filteredRestaurants.map(restaurant => (
                 restaurant.lat && restaurant.lng && (
